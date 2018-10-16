@@ -1,0 +1,71 @@
+﻿@model  List<Model.Entity.StructuralInformation>
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MachineFailure</title>
+    <script src="~/Plugins/laydate/laydate.js"></script>
+    <link rel="stylesheet" href="~/CSS/AddInformations.css">
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/User/AddInformations.js"></script>
+</head>
+<body>
+    <div class="info-wrapper">
+        <form action="@Url.Action("Index","Home")" method="POST" enctype="multipart/form-data" class="record-infos">
+            <div class="title">请输入故障信息</div>
+            <div class="item">
+                <span>合同主体</span>
+                <select name="customer" id="customer" class="content">
+                    @if (Model != null)
+                    {
+                        <option data-id="0">请选择...</option>
+                        foreach (var customer in Model)
+                        {
+                            <option data-id="@customer.ID" value="@customer.ID">@customer.Name</option>
+                        }
+                    }
+                    else
+                    {
+                        <option data-id="0">无数据</option>
+                    }
+                </select>
+                <img src="~/Icon/puls-sign.png" alt="" class="add-img" data-index="0" title="添加">
+            </div>
+            <div class="item">
+                <span>站点</span>
+                <select name="site" id="site" class="content"></select>
+                <img src="~/Icon/puls-sign.png" alt="" class="add-img" data-index="1" title="添加">
+            </div>
+            <div class="item">
+                <span>机组</span>
+                <select name="macs" id="macs" class="content"></select>
+                <img src="~/Icon/puls-sign.png" alt="" class="add-img" data-index="2" title="添加">
+            </div>
+            <div class="item">
+                <span>故障类型</span>
+                <select name="sens" id="sens" class="content"></select>
+                <img src="~/Icon/puls-sign.png" alt="" class="add-img" data-index="3" title="添加">
+            </div>
+            <div class="item">
+                <span>报告日期</span>
+                <input name="date" type="text" class="content" id="laydate" readonly="readonly">
+            </div>
+            <div class="item">
+                <span>故障截图</span>
+                <input type="file" name="pictures" class="picture" accept="image/*" multiple="multiple">
+            </div>
+            <div class="item">
+                <span>诊断结论</span>
+                <textarea name="conclusion" cols="30" rows="10" class="conclusion" ></textarea>
+            </div>
+            <a href="@Url.Action("Index","Home")"><input type="button" class="button" value="取消"></a>
+            <button type="button" class="button" id="ok">添加</button>
+        </form>
+    </div>
+</body>
+</html>
+

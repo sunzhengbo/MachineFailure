@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MachineFailureModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Updated" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FaultTypes">
+    <Key>
+      <PropertyRef Name="FaultTypeID" />
+    </Key>
+    <Property Name="FaultTypeID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MachineID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Updated" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Machines">
+    <Key>
+      <PropertyRef Name="MachineID" />
+    </Key>
+    <Property Name="MachineID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SiteID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Updated" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Option">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Pictures">
+    <Key>
+      <PropertyRef Name="PictureID" />
+    </Key>
+    <Property Name="PictureID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RecordID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Records">
+    <Key>
+      <PropertyRef Name="RecordID" />
+    </Key>
+    <Property Name="RecordID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FaultTypeID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Conclusion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Timestamp" Type="nvarchar" MaxLength="7" Nullable="false" />
+    <Property Name="Inserted" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sites">
+    <Key>
+      <PropertyRef Name="SiteID" />
+    </Key>
+    <Property Name="SiteID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Updated" Type="datetime2" Precision="7" />
+  </EntityType>
+  <Association Name="FK_CustomerID_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sites" Type="Self.Sites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Sites">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FaultTypeID_FaultTypes">
+    <End Role="FaultTypes" Type="Self.FaultTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Records" Type="Self.Records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FaultTypes">
+        <PropertyRef Name="FaultTypeID" />
+      </Principal>
+      <Dependent Role="Records">
+        <PropertyRef Name="FaultTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineID_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FaultTypes" Type="Self.FaultTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="MachineID" />
+      </Principal>
+      <Dependent Role="FaultTypes">
+        <PropertyRef Name="MachineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecordID_Records">
+    <End Role="Records" Type="Self.Records" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Pictures" Type="Self.Pictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Records">
+        <PropertyRef Name="RecordID" />
+      </Principal>
+      <Dependent Role="Pictures">
+        <PropertyRef Name="RecordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteID_Sites">
+    <End Role="Sites" Type="Self.Sites" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Machines" Type="Self.Machines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sites">
+        <PropertyRef Name="SiteID" />
+      </Principal>
+      <Dependent Role="Machines">
+        <PropertyRef Name="SiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MachineFailureModelStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FaultTypes" EntityType="Self.FaultTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Machines" EntityType="Self.Machines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Option" EntityType="Self.Option" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Records" EntityType="Self.Records" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sites" EntityType="Self.Sites" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CustomerID_Customers" Association="Self.FK_CustomerID_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Sites" EntitySet="Sites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FaultTypeID_FaultTypes" Association="Self.FK_FaultTypeID_FaultTypes">
+      <End Role="FaultTypes" EntitySet="FaultTypes" />
+      <End Role="Records" EntitySet="Records" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineID_Machines" Association="Self.FK_MachineID_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="FaultTypes" EntitySet="FaultTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecordID_Records" Association="Self.FK_RecordID_Records">
+      <End Role="Records" EntitySet="Records" />
+      <End Role="Pictures" EntitySet="Pictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteID_Sites" Association="Self.FK_SiteID_Sites">
+      <End Role="Sites" EntitySet="Sites" />
+      <End Role="Machines" EntitySet="Machines" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

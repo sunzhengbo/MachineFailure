@@ -1,0 +1,96 @@
+﻿*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.wrapper{
+    width: 1190px;
+    height: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.wrapper .bd{
+    width: 1190px;
+    height: 720px;
+}   
+
+.wrapper .bd .header{
+    width: 1190px;
+    height: 40px;
+}   
+
+.wrapper .bd .header ul li{
+   float: left;
+   margin: 0 3px;
+}
+
+.wrapper .bd .header ul li span{
+    line-height: 40px;
+    padding: 0 3px;
+ }
+
+.wrapper .bd .header ul li span:hover{
+   background-color: #ddd;
+   cursor: pointer;
+   border-radius: 4px;
+ }
+
+.wrapper .bd .bd-tab{
+    width: 1190px;
+    height: 640px;
+    background-color: #eee;
+}   
+
+.wrapper .bd .bd-tab a{
+    display:block;
+    width: 225px;
+    height: 95px;
+    background-color: #778899;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+ } 
+
+ .wrapper .bd .bd-tab a .name{
+     display: block;
+     text-align: center;
+     line-height: 50px;
+ }
+
+ .wrapper .bd .bd-tab a .timestamp{
+    display: block;
+    text-align: center;
+}
+
+.wrapper .bd .foot{
+    width: 1190px;
+    height: 40px;
+    position: relative;
+}   
+
+.wrapper .bd .foot .page{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.wrapper .bd .foot .page .currentPage{
+    color: #f40;
+}
+
+.wrapper .bd .foot .page li{
+    float: left;
+    padding: 0 6px;
+}
+
+.wrapper .bd .foot .page li a{
+    padding: 0 6px;
+}
+
+.wrapper .bd .foot .page li:hover a{
+    background-color: #666;
+    border-radius: 6px;
+}

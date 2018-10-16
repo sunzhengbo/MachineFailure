@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MachineFailure</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/User/TopNav.js"></script>
+    <link rel="stylesheet" href="~/CSS/TopNav.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 顶部导航栏 -->
+        <div class="top-nav-wrap">
+            <div class="title">
+                <h2>MachineFailure</h2>
+            </div>
+            <div class="drop-down">
+                <div class="left-nav">
+                    <ul>
+                        <li data-id="0">
+                            <span>合同主体</span>
+                            <ul class="menu-list"></ul>
+                        </li>
+                        <li data-id="1">
+                            <span>站点名称</span>
+                            <ul class="menu-list"></ul>
+                        </li>
+                        <li data-id="2">
+                            <span>机组名称</span>
+                            <ul class="menu-list"></ul>
+                        </li>
+                        <li data-id="3">
+                            <span>故障类型</span>
+                            <div class="menu-list"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rigth-nav">
+                    <ul>
+                        <li data-id="4">
+                            admin
+                            <ul class="user-list">
+                                <li>用户管理</li>
+                                <li>注销</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search">
+                <form action="@Url.Action("ShowSites","Sites")" method="POST" class="frm-sear">
+                    <input type="submit" value="搜索" class="botton">
+                    <div class="search-bd">
+                        <input type="text" class="search-border" readonly="readonly" placeholder="请选择故障部位" name="searchText">
+                        <div class="search-content">
+                            <ul class="ft-list" id="iii"></ul>
+                        </div>
+                    </div>
+                </form>
+                <a href="@Url.Action("AddInformations", "AddInfos")" class="add">
+                    <div class="add-icon"></div>
+                    <div class="add-text">添加故障</div>
+                </a>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+    <script>
+        $(function () {
+            //加载故障类型,当前页面加载完就执行加载
+            var doAjax = function (callback) {
+                $.ajax({
+                    url: '@Url.Action("GetFaultTypes", "FaultType")',
+                    type: 'get',
+                    datatype: 'json',
+                    success: function (data) {
+                        var $ft = $('.search-content .ft-list');
+                        $ft.children().remove();
+                        //把json字符串转成数组
+                        var arr = JSON.parse(data);
+                        for (var i = 0; i < arr.length; i++) { //循环添加option
+                            $ft.append('<li>' + arr[i] + '</li>');
+                        }
+                        //给搜索框赋值
+                        callback();
+                    }
+                });
+            }
+
+            //回调
+            doAjax(function () {
+                var $bth = $('.search .frm-sear .botton');
+                var $li = $('.search .frm-sear .search-bd .ft-list li');
+                var $input = $('.search .frm-sear .search-bd .search-border');
+                //选择搜索栏列表，并赋值给搜索框
+                $li.click(function () {
+                    $input.attr('placeholder', $(this).html());
+                    //$input.attr('id', "11");
+                    $input.val($(this).html());
+                    $bth.attr('type', 'submit');//变成提交按钮
+                });
+
+                //限定搜索框不能为空
+                $bth.click(function () {
+                    if ($input.val() == "") {
+                        $bth.attr('type', 'button');//变成普通按钮
+                        alert('故障类型不能为空');
+                        return;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

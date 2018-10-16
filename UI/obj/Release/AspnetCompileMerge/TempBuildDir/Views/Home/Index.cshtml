@@ -1,0 +1,97 @@
+﻿@model  List<Model.Entity.FaultInfo>
+
+@{
+    ViewBag.Title = "Index";
+    int count = ViewBag.senNames.Count;
+    if (count != 0)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = null;
+    }
+}
+
+<link rel="stylesheet" href="~/CSS/Index.css" />
+
+<div class="index-bd">
+    @if (count == 0)
+    {
+        <h1 class="no-data">No Data <a href="@Url.Action("AddInformations","AddInfos")" style="font-size:16px; ">添加数据</a></h1>
+    }
+    else
+    {
+        List<string> senNames = ViewBag.senNames;
+        var fInfo = new Model.Entity.FaultInfo();
+        var infos = Model;
+        for (var i = 0; i < senNames.Count; i++)
+        {
+            <div class="bd">
+                <div class="title">
+                    <h2>@senNames[i]</h2>
+                </div>
+                @if (infos[0].FaultInfos == "noPath")
+                {
+                    <div class="no-record">
+                        <h2>BinaryBase path is not found</h2>
+                    </div>
+                }
+                else if (infos[0].FaultInfos == "noRecord")
+                {
+                    <div class="no-record">
+                        <h2>No record</h2>
+                    </div>
+                }
+                else
+                {
+                    var leng = infos.Count();
+                    foreach (var info in infos)
+                    {
+                        if (senNames[i].Equals(info.FaultTypeName))
+                        {
+                            fInfo = info;
+                            break;
+                        }
+                    }
+
+                    <div class="img-wrap">
+                        @foreach (var img in fInfo.listPic)
+                        {
+                            if (img.Equals("noFile"))
+                            {
+                                <h3>Image does not exist or file path error</h3>
+                            }
+                            else
+                            {
+                                <img src="@img" alt="">
+                            }
+
+                        }
+                    </div>
+                    <div class="text">
+                        <textarea name="tArea" id="tArea" cols="30" rows="10" readonly="readonly">@fInfo.FaultInfos</textarea>
+                    </div>
+                }
+            </div>
+        }
+        if (!string.IsNullOrEmpty(fInfo.FaultInfos))
+        {
+            <script src="~/Scripts/User/jQuery-tools.js"></script>
+            <script>
+                //获取图片存放的盒子的集合
+                var $img = $('.index-bd .bd .img-wrap');
+                //遍历盒子
+                for (let i = 0; i < $img.length; i++)
+                {
+                    //当图片大于1时才轮播图片
+                    if ($($img[i]).children('img').length > 1)
+                    {
+                        //调用图片轮播的方法
+                        $($img[i]).shufflingFigure({ time: '3' })
+                    }
+                }
+            </script>
+        }
+    }
+</div>

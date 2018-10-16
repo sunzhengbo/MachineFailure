@@ -1,0 +1,103 @@
+﻿@model List<Model.Entity.ViewInfo>
+
+@{
+    ViewBag.Title = "Sites";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/CSS/SiteAndMachine.css" />
+
+<div class="bd">
+    <div class="header">
+        <ul>
+            <li>
+                <span><a href="@Url.Action("Index","Home")">首页</a></span>
+            </li>
+        </ul>
+    </div>
+    <div class="bd-tab" data-name="@ViewBag.searchText">
+        @foreach (var s in Model)
+        {
+            <a href="@Url.Action("ShowMachines","Machines",new { id=s.Id, searchText = ViewBag.searchText,siteName = s.Name})">
+                <span class="name">@s.Name</span>
+                <span class="timestamp">@s.Updated</span>
+            </a>
+        }
+    </div>
+    <div class="foot">
+        <ul class="page">
+            <li>
+                <span>页码</span>
+                <span class="currentPage">@ViewBag.currentPage</span>/<span class="totalPage">@ViewBag.totalPage</span>
+            </li>
+            <li><a id="first-page">首页</a></li>
+            <li><a id="last-page">尾页</a></li>
+            <li><a id="pre-page">上一页</a></li>
+            <li><a id="next-page">下一页</a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var doAjax = function (params) {
+        var searchText = $('.bd-tab').attr('data-name')
+        $.ajax({
+            url: params.url,
+            data: {
+                searchText: searchText,
+                currentPage: params.currentPageIndex
+            },
+            type: 'post',
+            datatype: 'json',
+            success: function (data) {
+                params.currentPageNode.html(params.currentPageIndex);
+                $('.bd-tab').children().remove();
+                if (data) {
+                    var arr = JSON.parse(data);
+                    for (let i = 0; i < arr.length; i++) {
+                        $('.bd-tab').append('<a href=@Url.Action("ShowMachines","Machines")?id=' + arr[i].Id + '&searchText='+searchText+'>\
+                                        <span class="name">' + arr[i].Name + '</span>\
+                                        <span class="timestamp">' + arr[i].Updated + '</span>\
+                                    </a>');
+                        console.log(arr[i].Id);
+                    }
+                }
+            },
+            error: function () {
+                console.log('Request failed');
+            }
+        });
+    }
+
+    //转到首页
+    $('#first-page').click(function () {
+        doAjax({
+            url: '@Url.Action("SitesLimitPage", "Sites")',
+            currentPageIndex: 1,
+            currentPageNode: $('.currentPage'),
+        });
+    });
+    //转到尾页
+    $('#last-page').click(function () {
+        doAjax({
+            url: '@Url.Action("SitesLimitPage", "Sites")',
+            currentPageIndex: $('.totalPage').html(),
+            currentPageNode: $('.currentPage'),
+        });
+    });
+    //转到上一页
+    $('#pre-page').click(function () {
+        doAjax({
+            url: '@Url.Action("SitesLimitPage", "Sites")',
+            currentPageIndex: $('.currentPage').html() <= 1 ? 1 : $('.currentPage').html()-1,
+            currentPageNode: $('.currentPage'),
+        });
+    });
+    //转到下一页
+    $('#next-page').click(function () {
+        doAjax({
+            url: '@Url.Action("SitesLimitPage", "Sites")',
+            currentPageIndex: $('.currentPage').html() >= $('.totalPage').html() ? $('.totalPage').html() : $('.currentPage').html() + 1,
+            currentPageNode: $('.currentPage'),
+        });
+    });
+</script>

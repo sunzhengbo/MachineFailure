@@ -1,0 +1,12 @@
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\Model.dll.config
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\Model.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\Model.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\EntityFramework.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\EntityFramework.SqlServer.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\EntityFramework.xml
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\EntityFramework.SqlServer.xml
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\zh-Hans\EntityFramework.resources.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Model\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Model\obj\Release\Model.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Model\obj\Release\Model.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\Model\obj\Release\Model.csprojResolveAssemblyReference.cache

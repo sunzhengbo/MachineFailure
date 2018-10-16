@@ -1,0 +1,15 @@
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\DAL.dll
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\DAL.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\Model.dll
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\EntityFramework.dll
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\Model.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\EntityFramework.xml
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\obj\Debug\DAL.dll
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\obj\Debug\DAL.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\Tools.dll
+E:\WorkSpace\VisualStudio\MachineFailure\DAL\bin\Debug\Tools.pdb

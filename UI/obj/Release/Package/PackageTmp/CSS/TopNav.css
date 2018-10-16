@@ -1,0 +1,233 @@
+﻿*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+.top-nav-wrap{
+    height: 160px;
+    width: 1190px;
+    margin: 0px auto;
+}
+
+.top-nav-wrap .title{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+.top-nav-wrap .drop-down{
+    height: 35px;
+    background: #eee;
+    position: relative;
+ }
+
+.top-nav-wrap .drop-down .left-nav{
+     position: absolute;
+     left: 8px;
+     top: 0;
+ }
+
+.top-nav-wrap .drop-down .left-nav span{
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    overflow: hidden
+}
+
+.top-nav-wrap .drop-down .left-nav .menu-list{ 
+    position: absolute;
+    left: 0px;
+    top: 35px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    width: 120px;
+    height: 200px;
+    overflow: scroll;
+    display: none;
+}
+
+.top-nav-wrap .drop-down .rigth-nav .user-list{ 
+    position: absolute;
+    left: 0px;
+    top: 35px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    width: 86px;
+    overflow: hidden;
+    display: none;
+}
+
+.top-nav-wrap .drop-down .rigth-nav .user-list li{
+    display: block;
+    width: 92px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.top-nav-wrap .drop-down .left-nav .menu-list a,
+.top-nav-wrap .drop-down .left-nav .menu-list li
+{ 
+    display: block;
+    width: 85px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.top-nav-wrap .drop-down .left-nav .menu-list a:hover,
+.top-nav-wrap .drop-down .left-nav .menu-list li:hover,
+.top-nav-wrap .drop-down .rigth-nav .user-list li:hover
+{
+    background-color: #ccc;
+}
+
+
+
+.top-nav-wrap .drop-down .rigth-nav{
+    position: absolute;
+    right: 8px;
+    top: 0;
+}
+
+.top-nav-wrap .drop-down ul li{
+    padding: 0 8px;
+    line-height: 35px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+}
+
+.top-nav-wrap .drop-down ul li span{
+    display: inline-block;
+    width: 70px;
+    height: 35px;
+    text-align: center;
+}
+
+.top-nav-wrap .drop-down div > ul > li:hover span{
+    color: #f40;
+}
+
+.top-nav-wrap .search{
+    height: 75px;
+    width: 1190px;
+    position: relative;
+}
+
+.top-nav-wrap .search .add{
+    display: block;
+    width: 45px;
+    height: 45px;
+    position:absolute;
+    right:4px;
+    top:4px;
+}
+
+.top-nav-wrap .search .add .add-icon{
+    display: block;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-image: url(../Icon/puls-sign.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.top-nav-wrap .search .add .add-text{
+    display: block;
+    width: 48px;
+    height: 20px;
+    overflow: hidden;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+.top-nav-wrap .search .frm-sear{
+    display: block;
+    width: 600px;
+    height: 40px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left: -300px;
+    margin-top: -20px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.top-nav-wrap .search .frm-sear .botton{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    border-left: 1px solid #000;
+    outline: none;
+    cursor: pointer;
+}
+
+.top-nav-wrap .search .frm-sear .search-bd .search-border{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 500px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-indent: 18px;
+}
+
+.top-nav-wrap .search .frm-sear .search-bd .search-content{
+    z-index: 1;
+    display: none;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    left:0;
+    top:41px;
+    background-color: #fff;
+    overflow: scroll;
+}
+
+.top-nav-wrap .search .frm-sear .search-bd .search-content ul{
+    z-index: 1;
+    display: block;
+    width: 500px;
+    height: 200px;
+}
+
+.top-nav-wrap .search .frm-sear .search-bd .search-content ul li{
+    display: block;
+    height: 25px;
+    width: 464px;
+    line-height: 25px;
+    padding: 0 18px;
+    color: #000;
+    cursor: pointer;
+}
+
+.top-nav-wrap .search .frm-sear .search-bd .search-content li:hover{
+    background-color: #ddd;
+}

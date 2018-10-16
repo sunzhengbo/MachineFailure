@@ -1,0 +1,14 @@
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\Tools.dll.config
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\Tools.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\Tools.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\EntityFramework.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\EntityFramework.SqlServer.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\Model.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\Model.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\EntityFramework.xml
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\EntityFramework.SqlServer.xml
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\zh-Hans\EntityFramework.resources.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\obj\Release\Tools.csprojResolveAssemblyReference.cache
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\obj\Release\Tools.dll
+E:\WorkSpace\VisualStudio\MachineFailure\Tools\obj\Release\Tools.pdb

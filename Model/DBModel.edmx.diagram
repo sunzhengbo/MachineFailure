@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3962dc2211cb437db67f4d2c13bb77b9" Name="Diagram1">
+        <EntityTypeShape EntityType="MachineFailureModel.Customers" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MachineFailureModel.FaultTypes" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MachineFailureModel.Machines" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MachineFailureModel.Option" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MachineFailureModel.Pictures" Width="1.5" PointX="12" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MachineFailureModel.Records" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MachineFailureModel.Sites" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="MachineFailureModel.FK_CustomerID_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="MachineFailureModel.FK_FaultTypeID_FaultTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="MachineFailureModel.FK_MachineID_Machines" ManuallyRouted="false" />
+        <AssociationConnector Association="MachineFailureModel.FK_SiteID_Sites" ManuallyRouted="false" />
+        <AssociationConnector Association="MachineFailureModel.FK_RecordID_Records" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

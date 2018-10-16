@@ -1,0 +1,14 @@
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\BLL.dll
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\BLL.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\DAL.dll
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\Model.dll
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\EntityFramework.dll
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\DAL.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\Model.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\EntityFramework.xml
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\obj\Debug\BLL.dll
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\obj\Debug\BLL.pdb
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\Tools.dll
+E:\WorkSpace\VisualStudio\MachineFailure\BLL\bin\Debug\Tools.pdb
